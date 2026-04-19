@@ -1,99 +1,102 @@
 # Hub de Onboarding BellBank
 
-Projeto desenvolvido como parte do Tech Challenge 4 (FIAP – Pós-Tech Management), com foco na evolução técnica de uma solução interna de onboarding corporativo.
+Projeto desenvolvido como parte do Tech Challenge 4 (FIAP – Pós-Tech Management), com foco na evolução técnica de uma solução interna voltada à integração de colaboradores no ambiente corporativo.
 
 ---
 
 ## 📖 Sobre o Projeto
 
-O Hub de Onboarding BellBank é uma plataforma interna criada para integrar o processo de admissão de novos colaboradores, conectando áreas como RH, TI e Facilities.
+O Hub de Onboarding BellBank é uma plataforma interna criada para organizar e integrar o processo de admissão de novos colaboradores, conectando áreas como RH, TI e Facilities.
 
-A solução centraliza o fluxo de onboarding, reduzindo a fragmentação de processos e permitindo automação de tarefas críticas, como provisionamento de acessos e acompanhamento da jornada inicial do colaborador.
+O processo de onboarding, quando descentralizado, tende a gerar atrasos, retrabalho e falta de visibilidade entre equipes. A proposta do Hub é atuar como um orquestrador central, estruturando esse fluxo de ponta a ponta e reduzindo a dependência de processos manuais.
 
-Diferentemente de soluções comerciais, este sistema foi projetado exclusivamente para uso interno, priorizando confiabilidade, segurança e integração com sistemas corporativos existentes.
+A solução permite automatizar etapas críticas, como provisionamento de acessos, acompanhamento da jornada inicial e comunicação entre áreas, garantindo maior eficiência operacional e melhor experiência para o colaborador.
+
+Por se tratar de um sistema interno, a arquitetura foi pensada priorizando confiabilidade, segurança e integração com sistemas corporativos já existentes no BellBank.
 
 ---
 
 ## 🏗️ Arquitetura
 
-A arquitetura adotada segue um modelo híbrido, combinando:
+A arquitetura segue um modelo híbrido, combinando um núcleo modular com serviços desacoplados.
 
-- Core modular responsável pela orquestração do onboarding  
-- Microsserviços para funcionalidades específicas  
-- Comunicação orientada a eventos com Apache Kafka  
-- API Gateway como ponto de entrada  
+O core do sistema é responsável pela orquestração do processo de onboarding, enquanto funcionalidades específicas são tratadas como microsserviços independentes. Essa divisão permite equilibrar simplicidade operacional e escalabilidade.
 
-Essa abordagem permite reduzir complexidade no domínio principal e manter escalabilidade nos serviços que exigem maior autonomia.
+A comunicação entre os componentes ocorre de forma assíncrona, utilizando Apache Kafka, garantindo desacoplamento e maior resiliência. O acesso ao sistema é organizado por meio de um API Gateway, centralizando as requisições e facilitando a governança.
+
+Essa abordagem reduz a complexidade do domínio principal sem comprometer a capacidade de evolução do sistema.
 
 ---
 
 ## 🔐 Segurança e Governança
 
-O projeto incorpora práticas de segurança e governança, incluindo:
+A segurança da informação é tratada como um elemento central da solução, considerando o alto grau de sensibilidade dos dados corporativos.
 
-- Controle de acesso baseado em funções (RBAC)  
-- Criptografia de dados (AES-256 e TLS)  
-- Auditoria e rastreabilidade  
-- Gestão segura de credenciais  
+O projeto adota controle de acesso baseado em funções (RBAC), criptografia de dados em repouso e em trânsito (AES-256 e TLS), além de mecanismos de auditoria e rastreabilidade das operações.
 
-A governança técnica define papéis claros e garante evolução controlada do sistema.
+A governança técnica define responsabilidades claras entre os papéis envolvidos, garantindo consistência nas decisões e evolução controlada da arquitetura.
 
 ---
 
 ## 📊 Dados e Inteligência Artificial
 
-A arquitetura de dados é composta por:
+Os dados gerados pelo processo de onboarding são tratados como ativos estratégicos.
 
-- PostgreSQL (dados transacionais)  
-- Apache Kafka (eventos)  
-- Data Lake (dados analíticos)  
+A arquitetura de dados separa claramente o contexto transacional do analítico, utilizando PostgreSQL para operações do dia a dia e um Data Lake para consolidação e análise de informações.
 
-A camada de IA permite:
+O Apache Kafka atua como intermediador dos eventos, permitindo que diferentes serviços consumam dados de forma assíncrona.
 
-- recomendação de trilhas de onboarding  
-- previsão de atrasos  
-- análise de desempenho  
+A camada de inteligência artificial utiliza esses dados para apoiar o processo de onboarding, permitindo recomendações, identificação de gargalos e análise de desempenho.
 
-O uso de IA segue princípios de ética, transparência e conformidade com a LGPD.
+Todo o uso de IA segue diretrizes de ética, transparência e conformidade com a LGPD.
 
 ---
 
 ## ⚙️ DevOps e DevSecOps
 
-O pipeline foi estruturado com práticas de integração contínua e segurança integrada:
+O ciclo de desenvolvimento foi estruturado com base em práticas de DevOps, garantindo automação e consistência nas entregas.
 
-- Build e testes automatizados  
-- Análise de segurança (SAST, dependency scan, container scan)  
-- Deploy contínuo  
-- Monitoramento e observabilidade  
+O pipeline inclui etapas de build, testes automatizados e validações de segurança, reduzindo riscos e aumentando a qualidade do software.
 
-A abordagem DevSecOps garante segurança em todo o ciclo de desenvolvimento.
+A abordagem DevSecOps integra a segurança desde o início do desenvolvimento, com uso de ferramentas de análise de código, verificação de dependências e análise de containers.
+
+Além disso, práticas de monitoramento e observabilidade permitem acompanhar o comportamento do sistema em tempo real.
 
 ---
 
 ## 🔗 Integrações
 
-O Hub atua como orquestrador interno, integrando:
+O Hub atua como um orquestrador interno, conectando diferentes sistemas corporativos do BellBank.
 
-- Microsoft Entra ID (identidade e acessos)  
-- ServiceNow (gestão de serviços e ativos)  
+Entre as principais integrações estão:
+
+- Microsoft Entra ID, para gestão de identidade e acessos  
+- ServiceNow, para controle de ativos e serviços  
 - Sistemas de recrutamento (ATS)  
-- Plataformas de treinamento  
+- Plataformas de treinamento e capacitação  
+
+A comunicação ocorre por meio de APIs seguras e eventos, garantindo flexibilidade e desacoplamento entre os sistemas.
 
 ---
 
 ## 📎 Diagramas
 
-Os diagramas foram desenvolvidos no Draw.io e estão disponíveis neste repositório.
+Os diagramas deste projeto foram desenvolvidos no Draw.io e estão organizados neste repositório, separados por domínio:
+
+- Arquitetura  
+- Governança e riscos  
+- Dados e IA  
+- DevSecOps  
 
 ---
 
 ## 🎯 Objetivos
 
-- Reduzir o tempo de ramp-up de novos colaboradores  
-- Automatizar o onboarding  
+- Reduzir o tempo de adaptação de novos colaboradores  
+- Automatizar etapas críticas do onboarding  
 - Melhorar a integração entre áreas  
-- Garantir segurança e conformidade  
+- Garantir segurança e conformidade no uso de dados  
+- Estruturar o onboarding como um processo digital integrado  
 
 ---
 
