@@ -1,0 +1,172 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="arch-max" name="Arquitetura Hub Onboarding - Nivel Maximo">
+    <mxGraphModel dx="2457" dy="1254" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=22;fontStyle=1;fontColor=#1F2937;" value="Hub de Onboarding BellBank - Arquitetura de Software" vertex="1">
+          <mxGeometry height="30" width="560" x="540" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#6B7280;" value="Arquitetura híbrida com core modular, microsserviços desacoplados e integração orientada a eventos" vertex="1">
+          <mxGeometry height="20" width="700" x="470" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="exp-layer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontStyle=1;fontSize=13;align=left;spacingLeft=14;" value="Camada de Experiência" vertex="1">
+          <mxGeometry height="90" width="1020" x="310" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="entry-layer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontStyle=1;fontSize=13;align=left;spacingLeft=14;" value="Camada de Entrada e Segurança" vertex="1">
+          <mxGeometry height="105" width="1020" x="310" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="domain-layer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontStyle=1;fontSize=13;align=left;spacingLeft=14;" value="Camada de Domínio e Aplicação" vertex="1">
+          <mxGeometry height="335" width="1400" x="120" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="integration-layer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontStyle=1;fontSize=13;align=left;spacingLeft=14;" value="Camada de Integração e Dados" vertex="1">
+          <mxGeometry height="210" width="1300" x="130" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontStyle=1;fontSize=13;" value="Frontend Web / Mobile&#xa;Portal interno de onboarding" vertex="1">
+          <mxGeometry height="42" width="340" x="650" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontStyle=1;fontSize=13;" value="API Gateway&#xa;Entrada única, roteamento, autenticação e rate limiting" vertex="1">
+          <mxGeometry height="48" width="420" x="610" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="core" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#4ADE80;fontColor=#14532D;fontStyle=1;fontSize=13;spacingTop=6;" value="Core Hub&#xa;(Monólito Modular)&#xa;&#xa;Bounded Contexts:&#xa;• Admissão&#xa;• Engajamento&#xa;• Jornada de onboarding" vertex="1">
+          <mxGeometry height="165" width="250" x="250" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="prov" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#4ADE80;fontColor=#14532D;fontStyle=1;fontSize=13;spacingTop=6;" value="Provisioning Service&#xa;&#xa;Bounded Context:&#xa;Provisionamento&#xa;&#xa;Criação de acessos, perfis e permissões" vertex="1">
+          <mxGeometry height="165" width="220" x="545" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="wF6CJU4_slEAa0axJ-dm-1" edge="1" parent="1" source="notif" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="domain-layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notif" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#4ADE80;fontColor=#14532D;fontStyle=1;fontSize=13;spacingTop=6;" value="Notification Service&#xa;&#xa;Bounded Context:&#xa;Notificações&#xa;&#xa;E-mail, alertas e comunicação entre áreas" vertex="1">
+          <mxGeometry height="165" width="220" x="810" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="assets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#4ADE80;fontColor=#14532D;fontStyle=1;fontSize=13;spacingTop=6;" value="Assets Service&#xa;&#xa;Bounded Context:&#xa;Gestão de Ativos&#xa;&#xa;Entrega e rastreabilidade de equipamentos" vertex="1">
+          <mxGeometry height="165" width="220" x="1075" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ai" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#A78BFA;fontColor=#4C1D95;fontStyle=1;fontSize=13;spacingTop=6;" value="AI / Data Service&#xa;&#xa;Bounded Context:&#xa;Dados e IA&#xa;&#xa;Analytics, previsões e recomendações" vertex="1">
+          <mxGeometry height="165" width="220" x="1340" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ats" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#F87171;fontColor=#7F1D1D;fontStyle=1;fontSize=12;" value="ATS / Sistema de RH" vertex="1">
+          <mxGeometry height="48" width="145" x="70" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="entra" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#F87171;fontColor=#7F1D1D;fontStyle=1;fontSize=12;" value="Microsoft Entra ID" vertex="1">
+          <mxGeometry height="42" width="160" x="480" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="servicenow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#F87171;fontColor=#7F1D1D;fontStyle=1;fontSize=12;" value="ServiceNow" vertex="1">
+          <mxGeometry height="42" width="160" x="990" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="training" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#F87171;fontColor=#7F1D1D;fontStyle=1;fontSize=12;" value="Plataforma de Treinamento" vertex="1">
+          <mxGeometry height="42" width="160" x="1370" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#FB923C;fontColor=#7C2D12;fontStyle=1;fontSize=13;" value="Kafka Event Bus&#xa;Integração assíncrona e desacoplamento entre domínios" vertex="1">
+          <mxGeometry height="52" width="420" x="590" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ECFCCB;strokeColor=#84CC16;fontColor=#365314;fontStyle=1;fontSize=12;" value="PostgreSQL&#xa;Dados transacionais" vertex="1">
+          <mxGeometry height="60" width="150" x="330" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="datalake" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#78350F;fontStyle=1;fontSize=12;" value="Data Lake / BI&#xa;Métricas, histórico e analytics" vertex="1">
+          <mxGeometry height="60" width="170" x="735" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="obs" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#E0F2FE;strokeColor=#38BDF8;fontColor=#0C4A6E;fontStyle=1;fontSize=12;" value="Observabilidade&#xa;Logs, métricas e tracing" vertex="1">
+          <mxGeometry height="60" width="170" x="1200" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontStyle=1;fontSize=12;" value="Legenda" vertex="1">
+          <mxGeometry height="34" width="150" x="1550" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontSize=11;" value="Azul: acesso e entrada" vertex="1">
+          <mxGeometry height="30" width="150" x="1550" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#4ADE80;fontSize=11;" value="Verde: domínio e aplicação" vertex="1">
+          <mxGeometry height="30" width="150" x="1550" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#FB923C;fontSize=11;" value="Laranja: integração/eventos" vertex="1">
+          <mxGeometry height="30" width="150" x="1550" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#F87171;fontSize=11;" value="Vermelho: sistemas externos" vertex="1">
+          <mxGeometry height="30" width="150" x="1550" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#A78BFA;fontSize=11;" value="Roxo: dados e IA" vertex="1">
+          <mxGeometry height="30" width="150" x="1550" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#D1D5DB;fontColor=#374151;fontSize=11;" value="Objetivo de negócio: reduzir ramp-up, automatizar o onboarding, garantir segurança e integração entre áreas" vertex="1">
+          <mxGeometry height="70" width="250" x="1450" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="frontend" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="core">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="310" />
+              <mxPoint x="375" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="prov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="notif">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="assets">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" target="ai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="ats" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;" target="kafka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="650" />
+              <mxPoint x="800" y="650" />
+            </Array>
+            <mxPoint x="370" y="560" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="prov" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;" target="kafka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="notif" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;" target="kafka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="assets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;" target="kafka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1185" y="680" />
+              <mxPoint x="800" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EA580C;strokeWidth=2;endArrow=block;endFill=1;" target="kafka">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1450" y="630" />
+              <mxPoint x="800" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="core" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#65A30D;strokeWidth=2;endArrow=block;endFill=1;" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=block;endFill=1;" target="datalake">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0284C7;strokeWidth=2;endArrow=block;endFill=1;" target="obs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="prov" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" target="entra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="assets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" target="servicenow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7C3AED;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" target="training">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
