@@ -57,4 +57,3 @@ Principais aplicações:
 - Aumentar eficiência operacional  
 - Apoiar decisões baseadas em dados  
 - Garantir segurança e conformidade  
-
