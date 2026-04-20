@@ -10,7 +10,8 @@ A solução adota um modelo híbrido, combinando um núcleo modular com microsse
 
 ## 🖼️ Diagrama de Arquitetura
 
-![Diagrama de Arquitetura](arquitetura.png)
+<img width="1631" height="991" alt="arquitetura_hub_onboarding drawio" src="https://github.com/user-attachments/assets/47c975b1-c1c5-4be4-b0c3-bd8f89a1964f" />
+
 
 ---
 
@@ -64,8 +65,8 @@ A solução adota um modelo híbrido, combinando um núcleo modular com microsse
 
 ## 📂 Arquivos
 
-- `arquitetura.drawio` → versão editável do diagrama
+- - `arquitetura.drawio` → versão editável do diagrama  
+- `arquitetura.png` → visualização do diagrama  
 
-- <img width="1631" height="991" alt="arquitetura_hub_onboarding drawio" src="https://github.com/user-attachments/assets/4d54975d-8ac3-4e7c-87f3-9922309bf40a" />
 
 
