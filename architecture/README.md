@@ -1,11 +1,5 @@
 # Arquitetura do Sistema
 
-## 📌 Visão Geral
-
-A arquitetura do Hub de Onboarding BellBank foi projetada para suportar um processo de onboarding corporativo eficiente, seguro e integrado entre diferentes áreas da organização.
-
-A solução adota um modelo híbrido, combinando um núcleo modular com microsserviços desacoplados, garantindo equilíbrio entre simplicidade operacional e escalabilidade.
-
 ---
 
 ## 🖼️ Diagrama de Arquitetura
@@ -13,44 +7,83 @@ A solução adota um modelo híbrido, combinando um núcleo modular com microsse
 <img width="1567" height="1004" alt="ChatGPT Image 21 de abr  de 2026, 12_31_30" src="https://github.com/user-attachments/assets/7a5572f0-516e-405f-bf60-89d2ca9e8005" />
 
 
+# 🏦 Arquitetura do Hub de Onboarding BellBank
+
+## 📌 Visão Geral
+
+A arquitetura do Hub de Onboarding BellBank foi projetada como uma plataforma interna corporativa, com o objetivo de automatizar e integrar o processo de onboarding entre diferentes áreas da organização.
+
+A solução adota um modelo híbrido, combinando um núcleo modular (monólito modular) com microsserviços desacoplados, permitindo equilibrar simplicidade operacional, governança e escalabilidade.
+
+---
+
+## 🖼️ Diagrama de Arquitetura
+
+![Arquitetura do Hub](./arquitetura.png)
 
 ---
 
 ## 🧠 Decisões Arquiteturais
 
-- **Arquitetura híbrida**: utilização de um core modular para orquestração e microsserviços para domínios específicos  
-- **Event-driven architecture**: comunicação assíncrona via Apache Kafka  
-- **API Gateway**: centralização de acesso, segurança e roteamento  
-- **Separação por domínios (DDD)**: organização em bounded contexts  
-- **Integração com sistemas corporativos**: Entra ID, ServiceNow e plataformas internas  
+- **Arquitetura híbrida:** core modular para orquestração e microsserviços para domínios específicos  
+- **Event-Driven Architecture:** comunicação assíncrona via Apache Kafka  
+- **Resiliência:** uso de retry, idempotência e Dead Letter Queue (DLQ)  
+- **API Gateway:** centralização de autenticação, autorização e roteamento  
+- **DDD (Domain-Driven Design):** separação por bounded contexts  
+- **BFF (Backend for Frontend):** adaptação para diferentes interfaces  
+- **Integração corporativa:** conexão com sistemas internos como Entra ID, ServiceNow e ATS  
 
 ---
 
 ## 🔗 Componentes Principais
 
-- **Frontend Web/Mobile**: interface de acesso ao sistema  
-- **API Gateway**: ponto único de entrada  
-- **Core Hub**: orquestração do processo de onboarding  
-- **Microsserviços**:
-  - Provisioning Service  
-  - Notification Service  
-  - Assets Service  
-  - AI/Data Service  
-- **Kafka**: barramento de eventos  
-- **Data Layer**:
-  - PostgreSQL (transacional)  
-  - Data Lake (analítico)  
+### Camada de Experiência
+- Frontend Web / Mobile
+
+### Camada de Entrada
+- API Gateway
+
+### Camada de Domínio
+- Core Hub (monólito modular)
+- Provisioning Service
+- Notification Service
+- Assets Service
+- AI/Data Service
+
+### Camada de Integração
+- Apache Kafka (Event Bus)
+
+### Camada de Dados
+- PostgreSQL (dados transacionais)
+- Data Lake (dados analíticos)
+
+### Observabilidade
+- Logs, métricas e tracing distribuído  
+- Prometheus, Grafana, OpenTelemetry  
 
 ---
 
 ## 🔄 Fluxo Simplificado
 
-1. O colaborador é cadastrado no sistema (via RH/ATS)  
+1. O sistema de RH (ATS) envia os dados do colaborador via API Gateway  
 2. O Core Hub inicia o processo de onboarding  
 3. Eventos são publicados no Kafka  
-4. Serviços consomem eventos e executam ações específicas  
+4. Microsserviços consomem eventos e executam ações específicas  
 5. Integrações externas são acionadas (Entra ID, ServiceNow)  
-6. Dados são armazenados para análise e melhoria contínua  
+6. Dados são persistidos no PostgreSQL e enviados ao Data Lake  
+7. Logs e métricas são coletados para monitoramento contínuo  
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- Backend: (definir — ex: Java / Node.js)  
+- Mensageria: Apache Kafka  
+- Banco de dados: PostgreSQL  
+- Data: Data Lake / BI  
+- Segurança: RBAC, criptografia  
+- DevOps: CI/CD, containers  
+- Observabilidade: Prometheus, Grafana, OpenTelemetry  
 
 ---
 
@@ -58,16 +91,13 @@ A solução adota um modelo híbrido, combinando um núcleo modular com microsse
 
 - Reduzir acoplamento entre sistemas  
 - Permitir evolução independente dos serviços  
-- Garantir resiliência e escalabilidade  
+- Garantir resiliência e tolerância a falhas  
 - Facilitar integração com sistemas corporativos  
 - Suportar análise de dados e inteligência artificial  
+- Manter governança técnica com baixa complexidade operacional  
 
 ---
 
-## 📂 Arquivos
-
-- - `arquitetura.drawio` → versão editável do diagrama  
-- `arquitetura.png` → visualização do diagrama  
 
 
 
