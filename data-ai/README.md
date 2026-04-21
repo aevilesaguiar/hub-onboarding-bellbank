@@ -12,6 +12,9 @@ Por se tratar de uma plataforma interna corporativa, a solução prioriza segura
 
 A arquitetura de dados foi estruturada em camadas, separando processamento operacional e analítico:
 
+<img width="1536" height="1024" alt="arquitetura_dedados" src="https://github.com/user-attachments/assets/1499e29e-de1c-4632-ab3d-f24a20fdafef" />
+
+
 ### 🔹 Camada Transacional (Operational Data)
 - Armazena dados operacionais do onboarding  
 - Tecnologia: PostgreSQL  
