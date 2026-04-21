@@ -126,8 +126,3 @@ A estratégia de IA segue princípios de uso responsável:
 
 ---
 
-## 📂 Arquivos
-
-- `data-architecture.drawio` → diagrama de dados  
-- `data-architecture.png` → visualização  
-- `ai-flow.png` → fluxo de IA  
