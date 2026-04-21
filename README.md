@@ -2,105 +2,154 @@
 
 Projeto desenvolvido como parte do Tech Challenge 4 (FIAP – Pós-Tech Management), com foco na evolução técnica de uma solução interna voltada à integração de colaboradores no ambiente corporativo.
 
----
+# 🏦 Hub de Onboarding BellBank
 
-## 📖 Sobre o Projeto
+## 📌 Visão Geral
 
-O Hub de Onboarding BellBank é uma plataforma interna criada para organizar e integrar o processo de admissão de novos colaboradores, conectando áreas como RH, TI e Facilities.
+O Hub de Onboarding BellBank é uma plataforma interna corporativa desenvolvida para automatizar e integrar o processo de admissão de colaboradores, promovendo maior eficiência operacional, redução de retrabalho e melhoria da experiência do colaborador.
 
-O processo de onboarding, quando descentralizado, tende a gerar atrasos, retrabalho e falta de visibilidade entre equipes. A proposta do Hub é atuar como um orquestrador central, estruturando esse fluxo de ponta a ponta e reduzindo a dependência de processos manuais.
-
-A solução permite automatizar etapas críticas, como provisionamento de acessos, acompanhamento da jornada inicial e comunicação entre áreas, garantindo maior eficiência operacional e melhor experiência para o colaborador.
-
-Por se tratar de um sistema interno, a arquitetura foi pensada priorizando confiabilidade, segurança e integração com sistemas corporativos já existentes no BellBank.
+A solução foi projetada para atuar como um orquestrador central, conectando diferentes áreas do banco — como Recursos Humanos, Tecnologia da Informação e Facilities — por meio de uma arquitetura moderna, segura e orientada a eventos.
 
 ---
 
-## 🏗️ Arquitetura
+## 🎯 Objetivo do Projeto
 
-A arquitetura segue um modelo híbrido, combinando um núcleo modular com serviços desacoplados.
-
-O core do sistema é responsável pela orquestração do processo de onboarding, enquanto funcionalidades específicas são tratadas como microsserviços independentes. Essa divisão permite equilibrar simplicidade operacional e escalabilidade.
-
-A comunicação entre os componentes ocorre de forma assíncrona, utilizando Apache Kafka, garantindo desacoplamento e maior resiliência. O acesso ao sistema é organizado por meio de um API Gateway, centralizando as requisições e facilitando a governança.
-
-Essa abordagem reduz a complexidade do domínio principal sem comprometer a capacidade de evolução do sistema.
+- Automatizar o processo de onboarding corporativo  
+- Integrar sistemas internos do BellBank  
+- Reduzir tempo e erros operacionais  
+- Garantir segurança e conformidade (LGPD)  
+- Suportar decisões baseadas em dados e IA  
 
 ---
 
-## 🔐 Segurança e Governança
+## 🏗️ Arquitetura da Solução
 
-A segurança da informação é tratada como um elemento central da solução, considerando o alto grau de sensibilidade dos dados corporativos.
+A arquitetura adota um modelo **híbrido**, combinando:
 
-O projeto adota controle de acesso baseado em funções (RBAC), criptografia de dados em repouso e em trânsito (AES-256 e TLS), além de mecanismos de auditoria e rastreabilidade das operações.
+- Core modular (monólito modular) para orquestração  
+- Microsserviços desacoplados para domínios específicos  
+- Comunicação assíncrona via Apache Kafka (Event-Driven Architecture)  
 
-A governança técnica define responsabilidades claras entre os papéis envolvidos, garantindo consistência nas decisões e evolução controlada da arquitetura.
+### Principais componentes:
 
----
+- API Gateway  
+- Core Hub  
+- Microsserviços (Provisioning, Notification, Assets, AI/Data)  
+- Kafka (event bus)  
+- PostgreSQL (dados transacionais)  
+- Data Lake (dados analíticos)  
 
-## 📊 Dados e Inteligência Artificial
-
-Os dados gerados pelo processo de onboarding são tratados como ativos estratégicos.
-
-A arquitetura de dados separa claramente o contexto transacional do analítico, utilizando PostgreSQL para operações do dia a dia e um Data Lake para consolidação e análise de informações.
-
-O Apache Kafka atua como intermediador dos eventos, permitindo que diferentes serviços consumam dados de forma assíncrona.
-
-A camada de inteligência artificial utiliza esses dados para apoiar o processo de onboarding, permitindo recomendações, identificação de gargalos e análise de desempenho.
-
-Todo o uso de IA segue diretrizes de ética, transparência e conformidade com a LGPD.
+📌 Detalhes completos:  
+👉 [`/arquitetura`](./arquitetura)
 
 ---
 
-## ⚙️ DevOps e DevSecOps
+## 🏛️ Governança de Tecnologia
 
-O ciclo de desenvolvimento foi estruturado com base em práticas de DevOps, garantindo automação e consistência nas entregas.
+A governança foi estruturada para garantir controle, consistência e alinhamento com o negócio.
 
-O pipeline inclui etapas de build, testes automatizados e validações de segurança, reduzindo riscos e aumentando a qualidade do software.
+Inclui:
 
-A abordagem DevSecOps integra a segurança desde o início do desenvolvimento, com uso de ferramentas de análise de código, verificação de dependências e análise de containers.
+- Definição de papéis (Tech Manager, Arquiteto, Segurança, Dados/IA)  
+- Fluxo de decisão técnica  
+- Matriz RACI  
+- Gestão de riscos  
+- Conformidade com LGPD  
 
-Além disso, práticas de monitoramento e observabilidade permitem acompanhar o comportamento do sistema em tempo real.
-
----
-
-## 🔗 Integrações
-
-O Hub atua como um orquestrador interno, conectando diferentes sistemas corporativos do BellBank.
-
-Entre as principais integrações estão:
-
-- Microsoft Entra ID, para gestão de identidade e acessos  
-- ServiceNow, para controle de ativos e serviços  
-- Sistemas de recrutamento (ATS)  
-- Plataformas de treinamento e capacitação  
-
-A comunicação ocorre por meio de APIs seguras e eventos, garantindo flexibilidade e desacoplamento entre os sistemas.
+📌 Detalhes completos:  
+👉 [`/governanca`](./governanca)
 
 ---
 
-## 📎 Diagramas
+## 📊 Dados & Inteligência Artificial
 
-Os diagramas deste projeto foram desenvolvidos no Draw.io e estão organizados neste repositório, separados por domínio:
+A estratégia de dados transforma o Hub em uma plataforma orientada a dados.
 
-- Arquitetura  
-- Governança e riscos  
-- Dados e IA  
-- DevSecOps  
+Inclui:
 
----
+- Arquitetura em camadas (PostgreSQL + Kafka + Data Lake)  
+- OCR para validação de documentos  
+- Modelos de IA para análise e recomendação  
+- KPI de precisão ≥ 98%  
+- Governança de dados e IA  
+- Human-in-the-loop  
 
-## 🎯 Objetivos
-
-- Reduzir o tempo de adaptação de novos colaboradores  
-- Automatizar etapas críticas do onboarding  
-- Melhorar a integração entre áreas  
-- Garantir segurança e conformidade no uso de dados  
-- Estruturar o onboarding como um processo digital integrado  
+📌 Detalhes completos:  
+👉 [`/data-ai`](./data-ai)
 
 ---
 
-## 👤 Autor
+## 🔐 DevOps & DevSecOps
 
-Aeviles de Aguiar Silva  
-FIAP – Pós-Tech Management
+O projeto adota práticas modernas de automação e segurança:
+
+- Pipeline CI/CD automatizado  
+- Segurança integrada (Shift-Left)  
+- SAST, SCA e scanning de containers  
+- Monitoramento contínuo  
+- Red Team, Blue Team e Purple Team  
+
+📌 Detalhes completos:  
+👉 [`/devsecops`](./devsecops)
+
+---
+
+## 🔗 Integração com Ecossistema
+
+O Hub atua como integrador central de sistemas corporativos:
+
+- Microsoft Entra ID (identidade)  
+- ServiceNow (gestão de serviços)  
+- ATS (sistema de recrutamento)  
+- LMS (treinamento)  
+
+A integração ocorre via:
+
+- APIs REST (comunicação síncrona)  
+- Kafka (comunicação assíncrona)  
+
+---
+
+## 🔄 Fluxo do Onboarding
+
+1. ATS envia dados do colaborador  
+2. Core Hub inicia o onboarding  
+3. Eventos são publicados no Kafka  
+4. Microsserviços executam ações específicas  
+5. Sistemas externos são acionados  
+6. Dados são armazenados e analisados  
+7. Monitoramento contínuo da operação  
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- Backend: (definir — ex: Java / Node.js)  
+- Mensageria: Apache Kafka  
+- Banco de dados: PostgreSQL  
+- Data: Data Lake / BI  
+- Segurança: RBAC, criptografia  
+- DevOps: CI/CD, containers  
+- Observabilidade: Prometheus, Grafana, OpenTelemetry  
+
+---
+
+## 📈 Roadmap Técnico
+
+- **Curto prazo:** automação inicial do onboarding  
+- **Médio prazo:** integração com sistemas corporativos  
+- **Longo prazo:** uso avançado de dados e inteligência artificial  
+
+---
+
+## 🔐 Segurança e Conformidade
+
+- Conformidade com LGPD  
+- Criptografia de dados  
+- Controle de acesso (RBAC)  
+- Auditoria e rastreabilidade  
+- Monitoramento contínuo  
+
+---
+
+## 📂 Estrutura do Repositório
