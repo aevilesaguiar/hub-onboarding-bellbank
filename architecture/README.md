@@ -1,12 +1,3 @@
-# Arquitetura do Sistema
-
----
-
-## 🖼️ Diagrama de Arquitetura
-
-<img width="1567" height="1004" alt="ChatGPT Image 21 de abr  de 2026, 12_31_30" src="https://github.com/user-attachments/assets/7a5572f0-516e-405f-bf60-89d2ca9e8005" />
-
-
 # 🏦 Arquitetura do Hub de Onboarding BellBank
 
 ## 📌 Visão Geral
@@ -19,7 +10,7 @@ A solução adota um modelo híbrido, combinando um núcleo modular (monólito m
 
 ## 🖼️ Diagrama de Arquitetura
 
-![Arquitetura do Hub](./arquitetura.png)
+<img width="1567" height="1004" alt="ChatGPT Image 21 de abr  de 2026, 12_31_30" src="https://github.com/user-attachments/assets/7a5572f0-516e-405f-bf60-89d2ca9e8005" />
 
 ---
 
