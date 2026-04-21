@@ -10,7 +10,8 @@ A solução adota um modelo híbrido, combinando um núcleo modular com microsse
 
 ## 🖼️ Diagrama de Arquitetura
 
-<img width="1631" height="991" alt="arquitetura_hub_onboarding drawio" src="https://github.com/user-attachments/assets/47c975b1-c1c5-4be4-b0c3-bd8f89a1964f" />
+<img width="1567" height="1004" alt="ChatGPT Image 21 de abr  de 2026, 12_31_30" src="https://github.com/user-attachments/assets/7a5572f0-516e-405f-bf60-89d2ca9e8005" />
+
 
 
 ---
