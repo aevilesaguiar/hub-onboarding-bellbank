@@ -39,8 +39,6 @@ A arquitetura adota um modelo **híbrido**, combinando:
 - PostgreSQL (dados transacionais)  
 - Data Lake (dados analíticos)  
 
-📌 Detalhes completos:  
-👉 [`/arquitetura`](./arquitetura)
 
 ---
 
@@ -56,8 +54,7 @@ Inclui:
 - Gestão de riscos  
 - Conformidade com LGPD  
 
-📌 Detalhes completos:  
-👉 [`/governanca`](./governanca)
+
 
 ---
 
@@ -74,8 +71,6 @@ Inclui:
 - Governança de dados e IA  
 - Human-in-the-loop  
 
-📌 Detalhes completos:  
-👉 [`/data-ai`](./data-ai)
 
 ---
 
@@ -89,8 +84,6 @@ O projeto adota práticas modernas de automação e segurança:
 - Monitoramento contínuo  
 - Red Team, Blue Team e Purple Team  
 
-📌 Detalhes completos:  
-👉 [`/devsecops`](./devsecops)
 
 ---
 
@@ -109,6 +102,9 @@ A integração ocorre via:
 - Kafka (comunicação assíncrona)  
 
 ---
+
+<img width="1660" height="948" alt="ChatGPT Image 21 de abr  de 2026, 13_21_39" src="https://github.com/user-attachments/assets/d4c1480a-2921-44a8-8a48-ce412c18d6b8" />
+
 
 ## 🔄 Fluxo do Onboarding
 
@@ -138,7 +134,10 @@ A integração ocorre via:
 
 - **Curto prazo:** automação inicial do onboarding  
 - **Médio prazo:** integração com sistemas corporativos  
-- **Longo prazo:** uso avançado de dados e inteligência artificial  
+- **Longo prazo:** uso avançado de dados e inteligência artificial
+
+- <img width="1693" height="929" alt="ChatGPT Image 21 de abr  de 2026, 13_26_39 (1)" src="https://github.com/user-attachments/assets/4859854a-8d9c-4a8c-a335-ee7808066fc0" />
+
 
 ---
 
@@ -150,6 +149,3 @@ A integração ocorre via:
 - Auditoria e rastreabilidade  
 - Monitoramento contínuo  
 
----
-
-## 📂 Estrutura do Repositório
