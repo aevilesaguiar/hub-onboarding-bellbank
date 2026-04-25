@@ -137,4 +137,5 @@ Ao tratar tecnologias como detalhes externos e manter o domínio no centro da so
 
 
 ## Infógrafo
+<img width="500" height="331" alt="image" src="https://github.com/user-attachments/assets/b6ba1a40-ac7f-410d-bc14-e6974cc5bb95" />
 
