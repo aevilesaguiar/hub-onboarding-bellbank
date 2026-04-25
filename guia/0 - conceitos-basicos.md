@@ -1,12 +1,3 @@
-Perfeito — esse pedido é **fundamental** 👍  
-Esses termos aparecem o tempo todo em documentação, diagramas e repositórios, e **entender o papel de cada um muda completamente a forma como você lê uma arquitetura**.
-
-Vou explicar **Controllers, Services, Repositories e Models** (e outros que você vai encontrar), de forma **progressiva**, **sem pressupor conhecimento técnico**, mas **sem infantilizar**.
-
-Think nisso como um **dicionário explicado para leitura de documentação**.
-
-***
-
 # Entendendo a documentação: Controllers, Services, Repositories e Models
 
 Em muitos sistemas (principalmente arquiteturas tradicionais em camadas), o código é organizado **por tipo técnico**. É daí que surgem pastas e conceitos como:
