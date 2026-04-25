@@ -188,6 +188,18 @@ Não é obrigatório, mas é comum em:
 > A melhor arquitetura é a que atende ao contexto com clareza de propósito e responsabilidade técnica.
 
 ---
+## 📊 Comparação entre Arquiteturas de Software
+
+| Arquitetura | Foco Principal | Organização | Ponto Forte | Trade-off | Quando Usar |
+|------------|---------------|-------------|-------------|-----------|-------------|
+| **Hexagonal** | Isolar domínio de tecnologias | Domínio central + adapters | Flexível a integrações | Mais abstrações | Múltiplos canais e integrações |
+| **Onion** | Proteger o domínio | Camadas concêntricas | Alto acoplamento ao domínio | Curva de entendimento | Domínio complexo |
+| **Clean** | Longevidade e clareza | Camadas bem definidas | Sustentável e testável | Verbosidade | Sistemas enterprise |
+| **Vertical Slice** | Entrega por funcionalidade | Fatias verticais | Rapidez e foco em negócio | Risco de duplicação | APIs e microsserviços |
+``
+
+
+
 
 ## 📚 Referências Conceituais
 - Alistair Cockburn – Hexagonal Architecture
