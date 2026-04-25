@@ -247,3 +247,214 @@ Arquitetura não é sobre classes —
 
 
 Esse entendimento é o que te faz **ler arquitetura com segurança**.
+
+O que é básico para entender Arquitetura, APIs e REST
+1️⃣ O que é uma API (Application Programming Interface)
+Uma API é um contrato de comunicação entre sistemas.
+Em termos simples:
+
+um sistema oferece funcionalidades
+outro sistema consome essas funcionalidades
+a API define como pedir e como responder
+
+Uma API:
+
+não é a interface visual
+não é o banco de dados
+é o meio de comunicação entre sistemas [redhat.com]
+
+Na documentação, leia assim:
+
+“API = como sistemas conversam entre si”
+
+
+2️⃣ O que é REST
+REST não é tecnologia nem framework.
+REST é um estilo arquitetural, criado por Roy Fielding, que define boas práticas para construir APIs escaláveis e simples.
+Uma API que segue REST é chamada de RESTful. [ibm.com]
+REST se baseia em:
+
+uso do protocolo HTTP
+comunicação sem estado (stateless)
+acesso a recursos (e não ações)
+
+
+3️⃣ Recursos (conceito chave em REST)
+Em REST, tudo é um recurso:
+
+usuário
+pedido
+contrato
+produto
+
+Cada recurso é acessado por uma URL (endpoint), por exemplo:
+/users
+/orders
+/contracts
+
+Na documentação:
+
+“Quando você vê URLs bem definidas, está vendo recursos REST” [cloud.google.com]
+
+
+4️⃣ Métodos HTTP (verbo importa)
+Os métodos HTTP indicam o que você quer fazer com um recurso:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MétodoSignificadoGETBuscarPOSTCriarPUTAtualizarDELETERemover
+Exemplo:
+
+GET /orders → buscar pedidos
+POST /orders → criar pedido [programado...brasil.com]
+
+
+5️⃣ Request e Response
+Toda API REST funciona no modelo:
+Request  →  Processamento  →  Response
+
+
+Request: pedido do cliente
+Response: resposta do servidor
+
+Respostas vêm com:
+
+código de status HTTP
+dados (normalmente em JSON) [cloud.google.com]
+
+
+6️⃣ Status HTTP (linguagem da resposta)
+Os status HTTP indicam o resultado da operação:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CódigoSignificado200Sucesso201Criado400Erro do cliente404Não encontrado500Erro do servidor
+Na documentação:
+
+“Status HTTP explicam o resultado sem ler o corpo” [redhat.com]
+
+
+7️⃣ JSON (formato básico de dados)
+JSON é o formato mais comum de обмен de dados em APIs REST.
+Exemplo simples:
+JSON{  "id": 1,  "name": "Pedido",  "status": "Criado"}Mostrar mais linhas
+JSON é:
+
+leve
+legível
+independente de linguagem [cloud.google.com]
+
+
+8️⃣ Camadas básicas de um sistema (visão geral)
+Quase todo sistema moderno tem, conceitualmente:
+
+Frontend → interface com o usuário
+Backend → regras e processamento
+Banco de dados → persistência
+
+As arquiteturas que você estudou organizam isso de formas diferentes.
+
+9️⃣ Conceitos que você já viu (tradução rápida)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ConceitoO que significaControllerPorta de entrada da APIService / Use CaseRegras e fluxoRepositoryAcesso à base de dadosDomain / CoreRegras do negócioAdapterPonte com tecnologiaEndpointURL da APIStatelessCada request é independente
+
+🔟 Como tudo se conecta com Arquitetura
+Agora o ponto mais importante 👇
+Arquitetura define:
+
+onde cada coisa deve ficar
+quem pode depender de quem
+como sistemas conversam
+
+REST e APIs são meios de comunicação.
+Arquitetura define como organizar o software por dentro.
+
+✅ Resumo mental para você guardar
+
+API = comunicação
+REST = estilo dessa comunicação
+Arquitetura = organização interna do sistema
