@@ -75,3 +75,14 @@ Fortemente associada ao CQRS, essa abordagem favorece:
 | **Onion** | Domínio protegido | Organização clara, domínio coeso, segue SOLID | Complexidade inicial, conceitos mal aplicados | Aplicações de médio e grande porte com domínio rico |
 | **Clean** | Sustentabilidade e clareza | Separação explícita de responsabilidades, altamente testável | Verbosidade, esforço inicial maior | Sistemas enterprise e de longo prazo |
 | **Vertical Slice** | Organização por funcionalidade | Entrega rápida, testes simples, foco em negócio | Risco de duplicação se mal governado | APIs modernas, microsserviços, sistemas orientados a casos de uso |
+
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e292d333-4601-49f2-bb23-5feeb347cae2" />
+
+🎯 Por que este comparativo funciona muito bem
+✅ Visão lado a lado
+
+Hexagonal → domínio isolado por portas
+Onion → domínio protegido por camadas concêntricas
+Clean → papéis claros e alta testabilidade
+Vertical Slice → foco em funcionalidade e entrega
