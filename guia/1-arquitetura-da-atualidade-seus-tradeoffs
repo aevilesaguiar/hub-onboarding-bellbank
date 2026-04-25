@@ -1,0 +1,340 @@
+# 🏗️ Arquiteturas de Software Modernas e seus Trade-offs
+
+Este repositório reúne um resumo técnico e consolidado das **arquiteturas de software modernas**, com foco em **organização interna do código**, **proteção do domínio**, **desacoplamento** e **trade-offs arquiteturais**.
+
+O objetivo é apoiar o aprendizado e a tomada de decisão arquitetural em contextos reais de produto, engenharia e governança.
+
+---
+
+## 🎯 Objetivo do Documento
+
+- Entender **por que arquiteturas modernas surgiram**
+- Compreender **o papel do domínio na arquitetura**
+- Analisar **vantagens, limitações e trade-offs**
+- Apoiar decisões técnicas alinhadas ao contexto do negócio
+
+---
+
+## 🧠 Princípios Fundamentais (Base de Tudo)
+
+Antes de falar de arquiteturas específicas, é essencial dominar os **princípios que as sustentam**.
+
+### Separation of Concerns (SoC)
+Princípio que defende a separação de responsabilidades dentro de um sistema, garantindo que cada módulo resolva **um único tipo de problema**.
+
+Benefícios:
+- Maior legibilidade
+- Melhor manutenção
+- Evolução mais segura
+
+Exemplo clássico: MVC (Model, View, Controller).
+
+---
+
+### Inversão de Dependência (Dependency Inversion)
+As regras de negócio **não devem depender de detalhes técnicos**.
+
+> O domínio define contratos, e a infraestrutura os implementa.
+
+Esse princípio é central em:
+- Arquitetura Hexagonal
+- Onion Architecture
+- Clean Architecture
+
+---
+
+## 🧩 Arquitetura Hexagonal (Ports and Adapters)
+
+Proposta por **Alistair Cockburn**, a Arquitetura Hexagonal tem como foco **isolar o domínio da aplicação**.
+
+### Conceito Central
+- Domínio no centro
+- Comunicação com o mundo externo via **Ports**
+- Tecnologias conectadas por **Adapters**
+
+### Estrutura
+- Centro: regras de negócio / casos de uso
+- Exterior: UI, banco de dados, mensageria, APIs
+
+O domínio:
+- Não conhece tecnologias
+- Não depende de frameworks
+- Pode ser reutilizado por múltiplas interfaces
+
+### Benefícios
+- Alto desacoplamento
+- Facilidade de testes
+- Independência tecnológica
+- Suporte a múltiplos canais (web, mobile, API, eventos)
+
+### Trade-offs
+- Curva de aprendizado
+- Mais abstrações
+- Overhead em sistemas simples
+
+---
+
+## 🧅 Onion Architecture
+
+Proposta por **Jeffrey Palermo**, organiza o sistema em **anéis concêntricos**.
+
+### Estrutura
+1. Domínio (núcleo puro)
+2. Serviços de Aplicação
+3. Interfaces (ports)
+4. Infraestrutura (adapters)
+
+### Características
+- Dependências sempre apontam para o centro
+- Forte proteção do domínio
+- Aderência ao SOLID
+
+### Quando usar
+- Domínios complexos
+- Sistemas de médio a grande porte
+- Ambientes com forte necessidade de manutenção e testes
+
+---
+
+## 🧼 Clean Architecture
+
+Proposta por **Robert C. Martin (Uncle Bob)**, é uma **síntese formal** das ideias da Hexagonal e da Onion.
+
+### Camadas Bem Definidas
+- **Entities**: regras de negócio mais genéricas
+- **Use Cases**: regras específicas da aplicação
+- **Interface Adapters**: tradução de dados
+- **Frameworks & Drivers**: tecnologias externas
+
+### Objetivos
+- Sustentabilidade do software
+- Clareza de responsabilidades
+- Independência de frameworks
+- Alta testabilidade
+
+### Trade-offs
+- Estrutura mais verbosa
+- Esforço maior no início
+
+Indicada para:
+- Sistemas enterprise
+- Aplicações de longo prazo
+- Domínios críticos
+
+---
+
+## 🧠 Vertical Slice Architecture
+
+Abordagem que rompe com a organização tradicional por camadas.
+
+### Conceito Central
+O sistema é organizado por **funcionalidade de negócio**, e não por tipo técnico.
+
+Cada *slice* contém:
+- Entrada
+- Caso de uso
+- Saída
+
+### Relação com CQRS
+- Separação entre comandos (write) e consultas (read)
+- Modelos e bancos otimizados por objetivo
+
+### Benefícios
+- Entregas mais rápidas
+- Funcionalidades isoladas
+- Testes mais simples
+- Excelente aderência a microsserviços e APIs
+
+### Riscos
+- Duplicação de código
+- Inconsistência entre slices se não houver governança
+
+---
+
+## 🔄 CQRS (Command Query Responsibility Segregation)
+
+Padrão comumente associado à Vertical Slice Architecture.
+
+### Características
+- Escrita e leitura separadas
+- Bancos e modelos distintos
+- Suporte a escalabilidade e performance
+
+Não é obrigatório, mas é comum em:
+- Sistemas de alta escala
+- Arquiteturas orientadas a eventos
+- Microsserviços
+
+---
+
+## 📊 Comparativo de Arquiteturas
+
+| Arquitetura | Quando Usar |
+|------------|------------|
+| Hexagonal | Muitas integrações e múltiplas interfaces |
+| Onion | Domínio complexo e rico |
+| Clean | Sistemas enterprise e longevos |
+| Vertical Slice | APIs, microsserviços, foco em delivery |
+
+---
+
+## 🧠 Conclusões Importantes
+
+- Não existe arquitetura universal
+- Arquitetura é decisão contextual
+- Princípios são mais importantes que nomes
+- Trade-offs devem ser explícitos e conscientes
+
+> A melhor arquitetura é a que atende ao contexto com clareza de propósito e responsabilidade técnica.
+
+---
+
+## 📚 Referências Conceituais
+- Alistair Cockburn – Hexagonal Architecture
+- Jeffrey Palermo – Onion Architecture
+- Robert C. Martin – Clean Architecture
+- Jimmy Bogard – Vertical Slice Architecture
+
+# 📘 Dicionário de Conceitos – Arquitetura de Software
+
+Este dicionário reúne os principais conceitos utilizados em arquiteturas de software modernas, com foco em organização de código, domínio, dependências, integrações e trade-offs arquiteturais.
+
+---
+
+## Arquitetura de Software
+Estrutura de alto nível de um sistema, composta por componentes, responsabilidades, formas de comunicação e decisões técnicas que orientam a evolução, escalabilidade, manutenibilidade e segurança da aplicação.
+
+---
+
+## Domínio
+Conjunto de regras de negócio, conceitos e comportamentos que representam o motivo principal da existência do sistema. Deve ser independente de tecnologia, frameworks e infraestrutura.
+
+---
+
+## Regra de Negócio
+Política, validação ou cálculo que expressa conhecimento do domínio. Deve residir no domínio ou nos casos de uso, e não em controllers, bancos ou frameworks.
+
+---
+
+## Separation of Concerns (SoC)
+Princípio que defende a separação de responsabilidades, garantindo que cada parte do sistema resolva um único tipo de problema (negócio, infraestrutura, apresentação, integração).
+
+---
+
+## Inversão de Dependência
+Princípio segundo o qual módulos de alto nível (domínio) não devem depender de módulos de baixo nível (infraestrutura). Ambos dependem de abstrações definidas pelo domínio.
+
+---
+
+## Arquitetura Hexagonal (Ports and Adapters)
+Arquitetura que coloca o domínio no centro e utiliza portas (interfaces) e adaptadores (implementações) para isolar regras de negócio de tecnologias externas.
+
+---
+
+## Port (Porta)
+Interface definida pelo domínio que estabelece um contrato de entrada (inbound) ou saída (outbound) da aplicação.
+
+---
+
+## Adapter (Adaptador)
+Implementação concreta de uma port, responsável por conectar o domínio a tecnologias externas como banco de dados, APIs, mensageria ou UI.
+
+---
+
+## Inbound Port
+Interface que representa as operações oferecidas pelo domínio, geralmente correspondendo a casos de uso acionados por APIs, UI ou eventos.
+
+---
+
+## Outbound Port
+Interface que representa dependências que o domínio precisa consumir, como persistência, serviços externos ou publicação de eventos.
+
+---
+
+## Onion Architecture
+Arquitetura baseada em camadas concêntricas onde o domínio permanece no núcleo, e todas as dependências apontam para o centro, protegendo regras de negócio de mudanças tecnológicas.
+
+---
+
+## Clean Architecture
+Arquitetura que formaliza a separação entre domínio, casos de uso, adaptadores de interface e infraestrutura, priorizando independência de frameworks, testabilidade e longevidade do sistema.
+
+---
+
+## Entity (Clean Architecture)
+Objeto de domínio que contém regras de negócio mais genéricas e reutilizáveis, independente de qualquer tecnologia.
+
+---
+
+## Use Case
+Camada responsável por orquestrar a lógica da aplicação, coordenando entidades e portas para executar um fluxo específico de negócio.
+
+---
+
+## Interface Adapter
+Camada que traduz dados entre o mundo externo (APIs, UI, banco) e o formato interno do domínio.
+
+---
+
+## Frameworks & Drivers
+Camada mais externa da Clean Architecture, onde ficam frameworks web, ORMs, bancos de dados, bibliotecas e serviços de infraestrutura.
+
+---
+
+## Arquitetura em Camadas
+Modelo tradicional que organiza o sistema em camadas horizontais (ex.: Controller, Service, Repository), geralmente com dependências direcionadas de cima para baixo.
+
+---
+
+## Vertical Slice Architecture
+Abordagem que organiza o sistema por funcionalidades completas (fatias verticais), onde cada slice contém tudo o que é necessário para executar um caso de uso específico.
+
+---
+
+## Slice
+Unidade funcional independente que representa uma feature ou caso de uso completo, incluindo entrada, processamento e saída.
+
+---
+
+## CQRS (Command Query Responsibility Segregation)
+Padrão que separa operações de escrita (commands) e leitura (queries), permitindo modelos, bancos e escalabilidade independentes.
+
+---
+
+## Command
+Operação que altera o estado do sistema, executando validações e regras de negócio.
+
+---
+
+## Query
+Operação de consulta que retorna dados sem alterar o estado do sistema, geralmente otimizada para performance.
+
+---
+
+## Arquitetura Orientada a Eventos
+Modelo arquitetural onde sistemas se comunicam por meio de eventos, promovendo desacoplamento, escalabilidade e processamento assíncrono.
+
+---
+
+## Evento de Domínio
+Representação de um fato relevante que ocorreu no domínio, podendo ser consumido por outros sistemas ou componentes.
+
+---
+
+## Acoplamento
+Grau de dependência entre componentes. Arquiteturas modernas buscam baixo acoplamento para facilitar evolução e manutenção.
+
+---
+
+## Coesão
+Grau com que responsabilidades de um componente estão relacionadas entre si. Alta coesão indica foco claro e bem definido.
+
+---
+
+## Trade-off Arquitetural
+Decisão consciente que envolve ganhos e perdas, como simplicidade versus escalabilidade, ou rapidez inicial versus manutenção de longo prazo.
+
+---
+
+## Débito Técnico
+Consequência de decisões técnicas que favorecem curto prazo em detrimento da qualidade estrutural, impactando evolução futura do sistema.
