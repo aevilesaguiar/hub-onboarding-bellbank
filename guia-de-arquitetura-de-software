@@ -1,0 +1,316 @@
+# 🏗️ Fundamentos de Arquitetura de Software
+
+Documento técnico com os conceitos essenciais para compreender, analisar e discutir **arquiteturas de software modernas**, com foco em sistemas distribuídos, dados e integrações.
+
+Este material é voltado para profissionais de produto, agilidade, governança e tecnologia que precisam **ler diagramas arquiteturais, participar de decisões técnicas e entender trade-offs**, mesmo sem atuar diretamente no desenvolvimento.
+
+---
+
+## 📌 Objetivo
+
+- Compreender arquiteturas de software em nível estrutural
+- Ler e interpretar diagramas arquiteturais (ex.: C4)
+- Entender decisões técnicas, limites e impactos
+- Apoiar discussões entre produto, arquitetura e engenharia
+
+---
+
+## 📖 Sumário
+
+- [Arquitetura de Software](#️-arquitetura-de-software)
+- [Sistemas, Aplicações e Serviços](#-sistemas-aplicações-e-serviços)
+- [Frontend e Backend](#-frontend-e-backend)
+- [Arquitetura Monolítica](#-arquitetura-monolítica)
+- [Microsserviços](#-arquitetura-de-microsserviços)
+- [Bounded Context (DDD)](#-bounded-context-ddd)
+- [Integrações e APIs](#-integrações-e-apis)
+- [Arquitetura Orientada a Eventos](#-arquitetura-orientada-a-eventos)
+- [Arquitetura de Dados](#-arquitetura-de-dados)
+- [Arquitetura em Camadas](#-arquitetura-em-camadas)
+- [Infraestrutura e Plataforma](#-infraestrutura-e-plataforma)
+- [Requisitos Não Funcionais](#-requisitos-não-funcionais)
+- [Modelo C4](#-modelo-c4)
+- [Considerações Finais](#-considerações-finais)
+
+---
+
+## 🏛️ Arquitetura de Software
+
+Arquitetura de software é a definição das **estruturas fundamentais de um sistema**, incluindo:
+
+- Componentes e suas responsabilidades
+- Comunicação entre componentes
+- Decisões arquiteturais e trade-offs
+- Restrições técnicas e organizacionais
+- Requisitos não funcionais (RNFs)
+
+A arquitetura orienta:
+- Evolução
+- Escalabilidade
+- Manutenibilidade
+- Segurança
+- Disponibilidade
+
+---
+
+## 🧩 Sistemas, Aplicações e Serviços
+
+### Sistema
+Unidade lógica responsável por um conjunto de capacidades de negócio ou técnicas, com identidade e ciclo de vida próprios.
+
+**Exemplos**
+- Sistema de crédito
+- Sistema de pagamentos
+- Sistema antifraude
+
+---
+
+### Aplicação
+Implementação técnica de um sistema, podendo assumir diferentes formatos:
+
+- Aplicação Web
+- Aplicação Mobile
+- Serviço Backend
+- Processamento Batch
+- Worker Assíncrono
+
+---
+
+### Serviço
+Componente executável responsável por um conjunto coeso de funcionalidades.
+
+Pode existir:
+- Dentro de um monólito
+- Como microsserviço independente
+
+---
+
+## 🖥️ Frontend e Backend
+
+### Frontend
+Camada de apresentação e interação com o usuário.
+
+Características:
+- Execução no cliente (browser ou mobile)
+- Consumo de APIs
+- Ausência de regras críticas de negócio
+
+---
+
+### Backend
+Camada responsável por:
+
+- Regras de negócio
+- Processamento
+- Orquestração de fluxos
+- Integrações
+- Persistência de dados
+
+Normalmente exposto via APIs.
+
+---
+
+## 🧱 Arquitetura Monolítica
+
+Modelo onde toda a aplicação é empacotada e implantada como uma única unidade.
+
+**Características**
+- Forte acoplamento interno
+- Deploy único
+- Escala integral
+- Simplicidade inicial
+
+**Riscos**
+- Dificuldade de evolução
+- Alto impacto de mudanças
+- Baixa autonomia de times
+
+---
+
+## 🧩 Arquitetura de Microsserviços
+
+Abordagem de arquitetura distribuída baseada em serviços independentes.
+
+**Características**
+- Deploy e escala independentes
+- Comunicação via APIs ou eventos
+- Isolamento de falhas
+- Maior complexidade operacional
+
+Cada microsserviço:
+- Representa um contexto bem definido
+- Possui modelo de dados próprio
+- Evolui de forma independente
+
+---
+
+## 🧠 Bounded Context (DDD)
+
+Conceito do *Domain-Driven Design* que define fronteiras claras onde:
+
+- O modelo de domínio é consistente
+- O vocabulário é específico
+- As regras de negócio são coesas
+
+Microsserviços geralmente mapeiam um **bounded context**.
+
+---
+
+## 🔌 Integrações e APIs
+
+### API (Application Programming Interface)
+
+Contrato formal para comunicação entre sistemas.
+
+Define:
+- Operações disponíveis
+- Estrutura de request e response
+- Protocolo de comunicação
+- Versionamento
+
+**Tipos comuns**
+- REST
+- GraphQL
+- gRPC
+
+---
+
+### Comunicação Síncrona
+- Request / response
+- Bloqueante
+- Dependência direta entre sistemas
+
+**Riscos**
+- Propagação de falhas
+- Latência acumulada
+
+---
+
+### Comunicação Assíncrona
+- Baseada em eventos
+- Alta resiliência
+- Baixo acoplamento
+
+---
+
+## 📣 Arquitetura Orientada a Eventos
+
+Modelo em que sistemas publicam e consomem **eventos de domínio**.
+
+**Benefícios**
+- Escalabilidade
+- Resiliência
+- Evolução desacoplada
+- Comunicação assíncrona
+
+Tecnologias comuns:
+- Kafka
+- RabbitMQ
+
+---
+
+## 🗄️ Arquitetura de Dados
+
+### Banco de Dados Transacional (OLTP)
+Utilizado para operações do dia a dia.
+
+- Consistência
+- Baixa latência
+- Suporte às regras de negócio
+
+---
+
+### Data Lake
+Repositório centralizado de dados brutos.
+
+**Características**
+- Dados estruturados e não estruturados
+- Schema-on-read
+- Histórico completo
+
+Usado para:
+- Analytics
+- Machine Learning
+- Exploração de dados
+
+---
+
+### Data Warehouse
+Repositório de dados tratados e consolidados.
+
+**Características**
+- Schema-on-write
+- Fonte única da verdade
+- Base para BI e relatórios oficiais
+
+---
+
+## 🧱 Arquitetura em Camadas
+
+Modelo clássico de organização arquitetural:
+
+1. Apresentação  
+2. Aplicação  
+3. Domínio  
+4. Infraestrutura  
+5. Dados  
+
+**Objetivo**
+- Separação de responsabilidades
+- Redução de acoplamento
+- Manutenção facilitada
+
+---
+
+## ☁️ Infraestrutura e Plataforma
+
+Componentes que suportam a execução e operação dos sistemas:
+
+- Containers (Docker)
+- Orquestração (Kubernetes)
+- API Gateway
+- Mensageria
+- Observabilidade (logs, métricas, traces)
+
+---
+
+## ✅ Requisitos Não Funcionais
+
+Aspectos que direcionam decisões arquiteturais:
+
+- Performance
+- Escalabilidade
+- Disponibilidade
+- Segurança
+- Compliance
+- Observabilidade
+- Recuperação de falhas
+
+> Requisitos não funcionais moldam a arquitetura mais do que requisitos funcionais.
+
+---
+
+## 🧭 Modelo C4
+
+Metodologia para documentação arquitetural em múltiplos níveis:
+
+1. **Contexto**
+2. **Container**
+3. **Componentes**
+4. **Código**
+
+Para governança e produto, os níveis mais relevantes são **Contexto** e **Container**.
+
+---
+
+## 🧠 Considerações Finais
+
+Compreender arquitetura de software exige foco em:
+
+- Responsabilidades
+- Acoplamento
+- Fluxo de dados
+- Comunicação entre sistemas
+- Trade-offs técnicos
+
+Não é necessário programar para entender arquitetura, mas é fundamental compreender seus princípios estruturais.
